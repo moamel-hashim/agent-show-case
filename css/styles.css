@@ -1,0 +1,25 @@
+body {
+  background-image: url("https://www.pcgamesn.com/wp-content/uploads/2020/03/valorant-logo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+header {
+  background-color: black;
+  padding: 1rem 0;
+}
+
+h1 {
+  color: white;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.proza-libre {
+  font-family: "Proza libre", sans-serif;
+}
+
+.open-sans {
+  font-family: "Open sans", sans-serif;
+}
