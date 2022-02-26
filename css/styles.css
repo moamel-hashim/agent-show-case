@@ -23,3 +23,40 @@ h1 {
 .open-sans {
   font-family: "Open sans", sans-serif;
 }
+
+ul {
+  padding: 0;
+}
+
+.img-container-style {
+  padding: 2rem 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: solid 2px gray;
+  border-radius: 8px;
+  margin: 2rem 0;
+  background-size: contain;
+  object-fit: cover;
+  box-shadow: 10px 5px 5px black;
+  transition: .2s ease-in-out;
+  position: relative;
+}
+
+img {
+  width: 100%;
+}
+
+.justify-space-around {
+  justify-content: space-around;
+}
+
+.img-container:hover {
+  transform: scale(1.1);
+}
+
+
+
+p {
+  color: white;
+}
