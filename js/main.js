@@ -21,33 +21,45 @@ xhr.addEventListener('load', function () {
     data.id++;
     const $img = document.createElement('img');
     $img.setAttribute('class', 'image');
+    $img.setAttribute('data-id', data.id);
     $img.setAttribute('src', xhr.response.data[i].fullPortrait);
     $imgContainer.appendChild($img);
     $row.appendChild($imgContainer);
     const $agentTextContainer = document.createElement('div');
     $agentTextContainer.setAttribute('class', 'agent-text-container hidden');
+    $agentTextContainer.setAttribute('data-id', data.id);
+    $agentTextContainer.setAttribute('data-visible', 'false');
     $imgContainer.appendChild($agentTextContainer);
     const $agentDescription = document.createElement('p');
     $agentDescription.setAttribute('class', 'open-sans');
     $agentDescription.textContent = xhr.response.data[i].description;
     $agentTextContainer.appendChild($agentDescription);
+    const $images = document.querySelectorAll('.image');
+    for (let j = 0; j < $images.length; j++) {
+      $images[i].addEventListener('click', function (event) {
+        const allTextContainer = document.querySelectorAll('.agent-text-container');
+        const imagesId = parseInt($images[i].getAttribute('data-id'));
+        for (let k = 0; k < allTextContainer.length; k++) {
+          const visibility = allTextContainer[k].getAttribute('data-visible');
+          const textContainerIds = parseInt(allTextContainer[k].getAttribute('data-id'));
+          if (imagesId === textContainerIds) {
+            allTextContainer[k].classList.remove('hidden');
+          }
+          if (visibility === 'false') {
+            allTextContainer[k].setAttribute('data-visible', true);
+          }
+          allTextContainer[k].addEventListener('click', function (event) {
+            if (imagesId === textContainerIds) {
+              allTextContainer[k].classList.add('hidden');
+            }
+            if (visibility === 'true') {
+              allTextContainer[k].setAttribute('data-visible', false);
+            }
+          });
+        }
+      });
+    }
   }
 });
 
 xhr.send();
-
-// $agentTextContainer.addEventListener('click', handleTextContainer);
-// function handleTextContainer(event) {
-//   if (event.target) {
-//     $agentTextContainer.classList.remove('hidden');
-//   }
-
-$ul.addEventListener('click', handleTextContainer);
-function handleTextContainer(event) {
-  const allTextContainer = document.querySelectorAll('.agent-text-container');
-  for (let i = 0; i < allTextContainer.length; i++) {
-    if (event.target) {
-      allTextContainer[i].classList.remove('hidden');
-    }
-  }
-}

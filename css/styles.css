@@ -41,10 +41,12 @@ ul {
   box-shadow: 10px 5px 5px black;
   transition: .2s ease-in-out;
   position: relative;
+  cursor: pointer;
 }
 
 img {
   width: 100%;
+  user-select: none;
 }
 
 .justify-space-around {
@@ -59,4 +61,27 @@ img {
 
 p {
   color: white;
+  user-select: none;
+}
+
+li {
+  list-style: none;
+}
+
+.agent-text-container {
+  user-select: none;
+  border-radius: 8px;
+  cursor: pointer;
+  animation-duration: 1s;
+  animation-name: show;
+}
+
+@keyframes show {
+  from {
+    height: 0%;
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
