@@ -87,7 +87,6 @@ function handleButton(event) {
 
 window.addEventListener('DOMContentLoaded', handleDomContent);
 function handleDomContent(event) {
-  switchView(data.view);
   const $agent = document.querySelector('.agent');
   for (let i = 0; i < data.character.length; i++) {
     if (data.character[i].displayName === data.currentAgent) {
@@ -95,6 +94,7 @@ function handleDomContent(event) {
       renderAgentAbilities(data.character[i]);
     }
   }
+  switchView(data.view);
 }
 const $view = document.querySelectorAll('[data-view]');
 function switchView(viewName) {
@@ -136,9 +136,14 @@ function renderAgentAbilities(abilities) {
         const $gifContainer = document.createElement('div');
         $gifContainer.setAttribute('class', 'gif-container');
         $row.appendChild($gifContainer);
-        const $img = document.createElement('img');
-        $img.setAttribute('src', data.gifLookUp[keys][i]);
-        $gifContainer.appendChild($img);
+        const $video = document.createElement('video');
+        $video.setAttribute('controls', 'true');
+        $video.setAttribute('preload', 'true');
+        $gifContainer.appendChild($video);
+        const $src = document.createElement('source');
+        $src.setAttribute('src', data.gifLookUp[keys][i]);
+        $src.setAttribute('type', 'video/mp4');
+        $video.appendChild($src);
         const $columnHalf = document.createElement('div');
         $columnHalf.setAttribute('class', 'column-half');
         $row.appendChild($columnHalf);

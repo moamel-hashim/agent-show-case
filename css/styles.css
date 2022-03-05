@@ -136,3 +136,7 @@ a {
 .margin-bottom {
   margin-bottom: 10rem;
 }
+
+video {
+  width: 100%;
+}
