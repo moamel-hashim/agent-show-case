@@ -30,7 +30,6 @@ ul {
 
 .img-container-style {
   padding: 2rem 0;
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border: solid 2px gray;
@@ -39,7 +38,7 @@ ul {
   background-size: contain;
   object-fit: cover;
   box-shadow: 10px 5px 5px black;
-  transition: .2s ease-in-out;
+  transition: 0.2s ease-in-out;
   position: relative;
   cursor: pointer;
 }
@@ -56,8 +55,6 @@ img {
 .img-container:hover {
   transform: scale(1.1);
 }
-
-
 
 p {
   color: white;
@@ -81,7 +78,65 @@ li {
     height: 0%;
     transform: translateY(100%);
   }
+
   to {
     transform: translateY(0);
   }
+}
+
+.button-container {
+  text-align: center;
+}
+
+button {
+  padding: 0.5rem 2rem;
+  background-color: transparent;
+  border: 2px solid gray;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 10px 5px 5px black;
+  font-family: "Proza libre", sans-serif;
+}
+
+button:hover {
+  background-color: #fe4553;
+}
+
+.justify-space-between {
+  justify-content: space-between;
+}
+
+.align-items-baseline {
+  align-items: baseline;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.gif-container {
+  width: 50%;
+  margin-top: 10rem;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.color-white {
+  color: white;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.margin-bottom {
+  margin-bottom: 10rem;
+}
+
+video {
+  width: 100%;
 }
