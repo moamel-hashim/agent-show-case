@@ -65,6 +65,11 @@ function renderAgents(agents) {
     $button.setAttribute('data-view', xhr.response.data[i].displayName);
     $button.textContent = 'View Abilities';
     $buttonContainer.appendChild($button);
+    const $span = document.createElement('span');
+    $imgContainer.appendChild($span);
+    const $star = document.createElement('i');
+    $star.setAttribute('class', 'far fa-star star');
+    $span.appendChild($star);
   }
 }
 
