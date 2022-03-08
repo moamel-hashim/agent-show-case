@@ -140,3 +140,7 @@ a {
 video {
   width: 100%;
 }
+
+.gap {
+  gap: 5rem;
+}
