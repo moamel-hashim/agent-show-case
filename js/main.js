@@ -89,98 +89,102 @@ function handleButton(event) {
     }
     switchView(data.view);
   }
+  // let starToggle = true;
+  //     const $starId = parseInt(event.target.matches('i').getAttribute('data-id'));
+  //     console.log($starId)
+  //     const $images = document.querySelectorAll('.image');
+  //     const $imagesId = parseInt($images[i].getAttribute('data-id'));
+  //     if (event.target.matches('i') && $starId === $imagesId && starToggle === true) {
+  //       $stars[i].className = 'fas fa-star star';
+  //       const $imageContainer = document.querySelectorAll('.img-container');
+  //       data.favorite.push($imageContainer[i]);
+  //       starToggle = false;
+  //     } else if ($starId === $imagesId && starToggle === false) {
+  //       $stars[i].className = 'far fa-star star';
+  //       starToggle = true;
+  //     }
+  //     });
+  // }
+}
 
-  window.addEventListener('DOMContentLoaded', handleDomContent);
-  function handleDomContent(event) {
-    const $agent = document.querySelector('.agent');
-    for (let i = 0; i < data.character.length; i++) {
-      if (data.character[i].displayName === data.currentAgent) {
-        $agent.setAttribute('data-view', data.currentAgent);
-        renderAgentAbilities(data.character[i]);
-      }
-    }
-    switchView(data.view);
-  }
-  const $view = document.querySelectorAll('[data-view]');
-  function switchView(viewName) {
-    data.view = viewName;
-    for (let i = 0; i < $view.length; i++) {
-      if ($view[i].getAttribute('data-view') === viewName) {
-        $view[i].className = 'view';
-      } else {
-        $view[i].className = 'agent hidden';
-      }
-    }
-  }
-
-  const $home = document.querySelector('.home');
-  $home.addEventListener('click', handleHomePage);
-  function handleHomePage(event) {
-    event.preventDefault();
-    switchView('home-page');
-  }
-
-  const $container = document.querySelector('.select-me');
-  function renderAgentAbilities(abilities) {
-    const $dataView = document.querySelectorAll('[data-view]');
-    for (let i = 0; i < $dataView.length; i++) {
-      if (abilities.displayName !== $dataView[i].getAttribute('data-view')) {
-        $container.innerHTML = '';
-      }
-    }
-    const $h2 = document.createElement('h2');
-    $h2.textContent = abilities.displayName;
-    $h2.setAttribute('class', 'text-align-center proza-libre color-white');
-    $container.appendChild($h2);
-    const $row = document.createElement('div');
-    $row.setAttribute('class', 'row align-items-center');
-    $container.appendChild($row);
-    for (const keys in data.gifLookUp) {
-      if (keys === abilities.displayName) {
-        for (let i = 0; i < data.gifLookUp[keys].length; i++) {
-          const $gifContainer = document.createElement('div');
-          $gifContainer.setAttribute('class', 'gif-container');
-          $row.appendChild($gifContainer);
-          const $video = document.createElement('video');
-          $video.setAttribute('controls', 'true');
-          $video.setAttribute('preload', 'true');
-          $gifContainer.appendChild($video);
-          const $src = document.createElement('source');
-          $src.setAttribute('src', data.gifLookUp[keys][i]);
-          $src.setAttribute('type', 'video/mp4');
-          $video.appendChild($src);
-          const $columnHalf = document.createElement('div');
-          $columnHalf.setAttribute('class', 'column-half');
-          $row.appendChild($columnHalf);
-          const $h3 = document.createElement('h3');
-          $h3.setAttribute('class', 'ability-name color-white proza-libre');
-          $h3.textContent = abilities.abilities[i].displayName;
-          $columnHalf.appendChild($h3);
-          const $p = document.createElement('p');
-          $p.setAttribute('class', 'ability-description open-sans');
-          $p.textContent = abilities.abilities[i].description;
-          $columnHalf.appendChild($p);
-        }
-      }
+window.addEventListener('DOMContentLoaded', handleDomContent);
+function handleDomContent(event) {
+  const $agent = document.querySelector('.agent');
+  for (let i = 0; i < data.character.length; i++) {
+    if (data.character[i].displayName === data.currentAgent) {
+      $agent.setAttribute('data-view', data.currentAgent);
+      renderAgentAbilities(data.character[i]);
     }
   }
-
-  const $favorite = document.querySelector('.favorite');
-  $favorite.addEventListener('click', handleFavoriteTab);
-  function handleFavoriteTab(event) {
-    event.preventDefault();
-    switchView('favorite');
+  switchView(data.view);
+}
+const $view = document.querySelectorAll('[data-view]');
+function switchView(viewName) {
+  data.view = viewName;
+  for (let i = 0; i < $view.length; i++) {
+    if ($view[i].getAttribute('data-view') === viewName) {
+      $view[i].className = 'view';
+    } else {
+      $view[i].className = 'agent hidden';
+    }
   }
+}
 
-  const $stars = document.querySelectorAll('.star');
-  for (let i = 0; i < $stars.length; i++) {
-    $stars[i].addEventListener('click', function handleStar(event) {
-      const $starId = parseInt($stars[i].getAttribute('data-id'));
-      const $images = document.querySelectorAll('.image');
-      const $imagesId = parseInt($images[i].getAttribute('data-id'));
-      if ($starId === $imagesId) {
-        $stars[i].setAttribute('class', 'fas fa-star star');
+const $home = document.querySelector('.home');
+$home.addEventListener('click', handleHomePage);
+function handleHomePage(event) {
+  event.preventDefault();
+  switchView('home-page');
+}
+
+const $container = document.querySelector('.select-me');
+function renderAgentAbilities(abilities) {
+  const $dataView = document.querySelectorAll('[data-view]');
+  for (let i = 0; i < $dataView.length; i++) {
+    if (abilities.displayName !== $dataView[i].getAttribute('data-view')) {
+      $container.innerHTML = '';
+    }
+  }
+  const $h2 = document.createElement('h2');
+  $h2.textContent = abilities.displayName;
+  $h2.setAttribute('class', 'text-align-center proza-libre color-white');
+  $container.appendChild($h2);
+  const $row = document.createElement('div');
+  $row.setAttribute('class', 'row align-items-center');
+  $container.appendChild($row);
+  for (const keys in data.gifLookUp) {
+    if (keys === abilities.displayName) {
+      for (let i = 0; i < data.gifLookUp[keys].length; i++) {
+        const $gifContainer = document.createElement('div');
+        $gifContainer.setAttribute('class', 'gif-container');
+        $row.appendChild($gifContainer);
+        const $video = document.createElement('video');
+        $video.setAttribute('controls', 'true');
+        $video.setAttribute('preload', 'true');
+        $gifContainer.appendChild($video);
+        const $src = document.createElement('source');
+        $src.setAttribute('src', data.gifLookUp[keys][i]);
+        $src.setAttribute('type', 'video/mp4');
+        $video.appendChild($src);
+        const $columnHalf = document.createElement('div');
+        $columnHalf.setAttribute('class', 'column-half');
+        $row.appendChild($columnHalf);
+        const $h3 = document.createElement('h3');
+        $h3.setAttribute('class', 'ability-name color-white proza-libre');
+        $h3.textContent = abilities.abilities[i].displayName;
+        $columnHalf.appendChild($h3);
+        const $p = document.createElement('p');
+        $p.setAttribute('class', 'ability-description open-sans');
+        $p.textContent = abilities.abilities[i].description;
+        $columnHalf.appendChild($p);
       }
-    });
+    }
   }
+}
+
+const $favorite = document.querySelector('.favorite');
+$favorite.addEventListener('click', handleFavoriteTab);
+function handleFavoriteTab(event) {
+  event.preventDefault();
+  switchView('favorite');
 }
