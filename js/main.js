@@ -4,8 +4,8 @@ const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://valorant-api.com/v1/agents?isPlayableCharacter=true');
 xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
-  console.log('the status of xhr', xhr.status);
-  console.log('the response of xhr', xhr.response.data);
+  // console.log('the status of xhr', xhr.status);
+  // console.log('the response of xhr', xhr.response.data);
   data.character = xhr.response.data;
   renderAgents(xhr.response);
 
@@ -232,41 +232,17 @@ const $favorite = document.querySelector('.favorite');
 $favorite.addEventListener('click', handleFavoriteTab);
 function handleFavoriteTab(event) {
   event.preventDefault();
-  let foundAMatch = false;
-  const $imageContainers = document.querySelectorAll('.img-container');
-  for (let i = 0; i < data.favorite.length; i++) {
-    const $characterName = $imageContainers[i].getAttribute('data-character-name');
-    console.log(data.favorite[i].displayName === $characterName);
-    if (data.favorite[i].displayName === $characterName) {
-      foundAMatch = true;
-    }
-  }
-  if (!foundAMatch) {
-    console.log('hi');
-    renderFavorite();
-  }
+  const $li = document.querySelector('.li');
+  $li.remove();
+  renderFavorite();
   data.id = 0;
   switchView('favorite');
 }
-// let foundAMatch = false;
-//     const $imageContainers = document.querySelectorAll('.img-container');
-//     const $characterName = $imageContainers[i].getAttribute('data-character-name');
-//     for (let i = 0; i < data.favorite.length; i++) {
-//       if (data.favorite[i].displayName === $characterName) {
-//         foundAMatch = true;
-//         $star.setAttribute('class', 'fas fa-star star');
-//       }
-//     }
-//     if (!foundAMatch) {
-//       for (let j = 0; j < data.character.length; j++) {
-//         if ($characterName === data.character[j].displayName) {
-//           $star.setAttribute('class', 'far fa-star star');
-//         }
-//       }
-//     }
+
 const $secondUl = document.querySelector('.second-ul');
 function renderFavorite(agent) {
   const $li = document.createElement('li');
+  $li.setAttribute('class', 'li');
   $secondUl.appendChild($li);
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row justify-space-around');
@@ -337,15 +313,12 @@ function handleFavoriteButton(event) {
   }
   if (event.target.matches('button')) {
     const $agent = document.querySelector('#favorite-agent');
-    console.log($agent);
     const $viewValue = event.target.getAttribute('data-view');
     data.view = $viewValue;
     for (let i = 0; i < data.character.length; i++) {
       if (data.character[i].displayName === data.view) {
         $agent.setAttribute('data-view', data.character[i].displayName);
-        console.log(data.character[i].displayName);
         data.currentAgent = $agent.getAttribute('data-view', data.character[i].displayName);
-        console.log(data.character[i]);
         renderAgentAbilities(data.character[i]);
       }
     }
