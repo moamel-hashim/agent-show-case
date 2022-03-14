@@ -106,6 +106,7 @@ if (previousDataJSON !== null) {
 
 window.addEventListener('beforeunload', BeforeUnloadHandler);
 function BeforeUnloadHandler(event) {
+  data.id = 0;
   const dataJSON = JSON.stringify(data);
   localStorage.setItem('AJAX', dataJSON);
 }
