@@ -148,7 +148,15 @@ video {
 .star {
   color: yellow;
   position: absolute;
-  top: 0;
+  top: 8px;
   right: 0;
-  font-size: 2rem;
+  font-size: 1.5rem;
+}
+
+.trash {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  color: red;
+  font-size: 1.5rem;
 }

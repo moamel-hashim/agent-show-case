@@ -272,8 +272,14 @@ function renderFavorite(agent) {
     $imageContainer.appendChild($span);
     const $star = document.createElement('i');
     $star.setAttribute('class', 'fas fa-star star');
-    $star.setAttribute('data-character-name', data.favorite.displayName);
+    $star.setAttribute('data-character-name', data.favorite[i].displayName);
     $span.appendChild($star);
+    const $secondSpan = document.createElement('span');
+    $imageContainer.appendChild($secondSpan);
+    const $trash = document.createElement('i');
+    $trash.setAttribute('class', 'fas fa-trash trash');
+    $trash.setAttribute('data-character-name', data.favorite[i].displayName);
+    $secondSpan.appendChild($trash);
     data.id++;
     $agentDescription.textContent = data.favorite[i].description;
     $agentTextContainer.appendChild($agentDescription);
