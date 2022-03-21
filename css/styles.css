@@ -181,3 +181,7 @@ video {
 .font-size-large {
   font-size: 2rem;
 }
+
+.favorite-img-container:hover {
+  transform: scale(1.1);
+}
