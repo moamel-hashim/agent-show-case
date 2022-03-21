@@ -162,6 +162,7 @@ function handleDomContent(event) {
   }
   renderFavorite(data.character);
   switchView(data.view);
+  favoriteACharacter();
 }
 const $view = document.querySelectorAll('[data-view]');
 function switchView(viewName) {
@@ -179,6 +180,27 @@ const $home = document.querySelector('.home');
 $home.addEventListener('click', handleHomePage);
 function handleHomePage(event) {
   event.preventDefault();
+  const $star = document.querySelectorAll('.star');
+  let foundAMatch = false;
+  const $favoriteImageContainer = document.querySelectorAll('.img-container');
+  for (let i = 0; i < $favoriteImageContainer.length; i++) {
+    var characterName = $favoriteImageContainer[i].getAttribute('data-character-name');
+    for (let k = 0; k < data.favorite.length; k++) {
+      if (characterName === data.favorite[k].displayName) {
+        foundAMatch = true;
+        // $star.setAttribute('class', 'fas fa-star star');
+      }
+    }
+  }
+  if (!foundAMatch) {
+    for (let j = 0; j < $star.length; j++) {
+      const favoriteCharacter = $star[j].getAttribute('data-character-name');
+      if (characterName === favoriteCharacter) {
+
+        $star[j].setAttribute('class', 'far fa-star star');
+      }
+    }
+  }
   data.id = 0;
   switchView('home-page');
 }
@@ -249,7 +271,7 @@ function renderFavorite(agent) {
   $li.appendChild($row);
   for (let i = 0; i < data.favorite.length; i++) {
     const $imageContainer = document.createElement('div');
-    $imageContainer.setAttribute('class', 'img-container img-container-style');
+    $imageContainer.setAttribute('class', 'favorite-img-container img-container-style');
     $imageContainer.setAttribute('data-id', data.id);
     $imageContainer.setAttribute('data-character-name', data.favorite[i].displayName);
     if (data.favorite[i].background !== null) {
@@ -310,6 +332,7 @@ function renderFavorite(agent) {
     $button.textContent = 'View Abilities';
     $buttonContainer.appendChild($button);
   }
+  favoriteACharacter();
 }
 
 $secondUl.addEventListener('click', handleFavoriteButton);
@@ -329,5 +352,71 @@ function handleFavoriteButton(event) {
       }
     }
     switchView(data.view);
+  }
+}
+
+$secondUl.addEventListener('click', handleModel);
+function handleModel(event) {
+  if (!event.target.matches('.trash')) {
+    return;
+  }
+  if (event.target.matches('.trash')) {
+    const $overlay = document.querySelector('.overlay');
+    $overlay.classList.remove('hidden');
+    const $model = document.querySelector('.model-container');
+    $model.classList.remove('hidden');
+    const $p = document.querySelector('.delete-character');
+    const character = event.target.getAttribute('data-character-name');
+    $p.textContent = `Are you sure you want to delete ${character}?`;
+    const $confirm = document.querySelector('.confirm');
+    $confirm.setAttribute('data-character-name', character);
+  }
+}
+
+const $cancel = document.querySelector('.cancel');
+$cancel.addEventListener('click', handleCancel);
+function handleCancel(event) {
+  const $overlay = document.querySelector('.overlay');
+  $overlay.classList.add('hidden');
+  const $model = document.querySelector('.model-container');
+  $model.classList.add('hidden');
+}
+
+const $confirm = document.querySelector('.confirm');
+$confirm.addEventListener('click', handleConfirm);
+function handleConfirm(event) {
+  if (event.target.matches('.confirm')) {
+    const characterName = event.target.getAttribute('data-character-name');
+    for (let i = 0; i < data.favorite.length; i++) {
+      if (characterName === data.favorite[i].displayName) {
+        data.favorite.splice(i, 1);
+      }
+    }
+    const $imageContainers = document.querySelectorAll('.favorite-img-container');
+    for (let i = 0; i < $imageContainers.length; i++) {
+      const $imageContainersCharacterName = $imageContainers[i].getAttribute('data-character-name');
+      if ($imageContainersCharacterName === characterName) {
+        $imageContainers[i].remove();
+      }
+    }
+  }
+  const $overlay = document.querySelector('.overlay');
+  $overlay.classList.add('hidden');
+  const $model = document.querySelector('.model-container');
+  $model.classList.add('hidden');
+  favoriteACharacter();
+}
+
+function favoriteACharacter() {
+  if (data.favorite.length === 0) {
+    const $p = document.querySelector('.font-size-large');
+    $p.classList.remove('hidden');
+    const $row = document.querySelector('.favorite-row');
+    $row.classList.add('justify-center');
+  } else {
+    const $p = document.querySelector('.font-size-large');
+    $p.classList.add('hidden');
+    const $row = document.querySelector('.favorite-row');
+    $row.classList.remove('justify-center');
   }
 }
