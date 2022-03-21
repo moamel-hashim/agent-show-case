@@ -89,7 +89,6 @@ li {
 }
 
 button {
-  padding: 0.5rem 2rem;
   background-color: transparent;
   border: 2px solid gray;
   color: white;
@@ -150,7 +149,6 @@ video {
   position: absolute;
   top: 8px;
   right: 0;
-  font-size: 1.5rem;
 }
 
 .trash {
@@ -158,5 +156,24 @@ video {
   top: 8px;
   left: 0;
   color: red;
-  font-size: 1.5rem;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.model-container {
+  background-color: #0f1722;
+  height: 25vh;
+  border-radius: 5px;
+  z-index: 999;
+  box-shadow: 10px 5px 5px black;
+}
+
+.margin-top {
+  margin-top: 2rem;
 }

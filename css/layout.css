@@ -28,12 +28,14 @@
   position: absolute;
   width: 100%;
   height: 118.3vh;
+  z-index: 900;
 }
 
 .model-container {
   position: absolute;
+  width: 80%;
   right: 0;
-  left: 0;
+  left: 2.5rem;
   bottom: 0;
   top: 15rem;
 }
@@ -51,6 +53,18 @@
   height: 100%;
   overflow: scroll;
   filter: blur(0);
+}
+
+.star {
+  font-size: 1rem;
+}
+
+.trash {
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -73,6 +87,7 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    z-index: 900;
   }
 
   .eighty-percent {
@@ -80,9 +95,10 @@
   }
 
   .model-container {
+    width: 30%;
     position: absolute;
     right: 0;
-    left: 0;
+    left: 42rem;
     bottom: 0;
     top: 19rem;
   }
@@ -91,13 +107,25 @@
     width: 26%;
   }
 
-.agent-text-container {
-  background-color: black;
-  opacity: 60%;
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: unset;
-}
+  .agent-text-container {
+    background-color: black;
+    opacity: 60%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: unset;
+  }
+
+  button {
+    padding: 0.5rem 2rem;
+  }
+
+  .trash {
+    font-size: 1.5rem;
+  }
+
+  .star {
+    font-size: 1.5rem;
+  }
 }
