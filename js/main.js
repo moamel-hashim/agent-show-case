@@ -15,6 +15,7 @@ xhr.send();
 
 function renderAgents(agents) {
   const $li = document.createElement('li');
+  $li.setAttribute('class', 'homepage-li');
   $ul.appendChild($li);
   const $row = document.createElement('div');
   $row.setAttribute('class', 'row justify-space-around');
@@ -180,27 +181,9 @@ const $home = document.querySelector('.home');
 $home.addEventListener('click', handleHomePage);
 function handleHomePage(event) {
   event.preventDefault();
-  const $star = document.querySelectorAll('.star');
-  let foundAMatch = false;
-  const $favoriteImageContainer = document.querySelectorAll('.img-container');
-  for (let i = 0; i < $favoriteImageContainer.length; i++) {
-    var characterName = $favoriteImageContainer[i].getAttribute('data-character-name');
-    for (let k = 0; k < data.favorite.length; k++) {
-      if (characterName === data.favorite[k].displayName) {
-        foundAMatch = true;
-        // $star.setAttribute('class', 'fas fa-star star');
-      }
-    }
-  }
-  if (!foundAMatch) {
-    for (let j = 0; j < $star.length; j++) {
-      const favoriteCharacter = $star[j].getAttribute('data-character-name');
-      if (characterName === favoriteCharacter) {
-
-        $star[j].setAttribute('class', 'far fa-star star');
-      }
-    }
-  }
+  const $li = document.querySelector('.homepage-li');
+  $li.remove();
+  renderAgents();
   data.id = 0;
   switchView('home-page');
 }
