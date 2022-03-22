@@ -89,7 +89,6 @@ li {
 }
 
 button {
-  padding: 0.5rem 2rem;
   background-color: transparent;
   border: 2px solid gray;
   color: white;
@@ -148,7 +147,41 @@ video {
 .star {
   color: yellow;
   position: absolute;
-  top: 0;
+  top: 8px;
   right: 0;
+}
+
+.trash {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  color: red;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.model-container {
+  background-color: #0f1722;
+  height: 25vh;
+  border-radius: 5px;
+  z-index: 999;
+  box-shadow: 10px 5px 5px black;
+}
+
+.margin-top {
+  margin-top: 2rem;
+}
+
+.font-size-large {
   font-size: 2rem;
+}
+
+.favorite-img-container:hover {
+  transform: scale(1.1);
 }

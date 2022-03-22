@@ -14,6 +14,7 @@
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==">
 </head>
 <body>
+  <div class="overlay hidden"></div>
   <header>
     <div class="container">
       <div class="row justify-space-between align-items-baseline">
@@ -39,9 +40,21 @@
       </div>
     </div>
     <div data-view="favorite">
-      <div class="row">
+      <div class="row position-relative favorite-row">
+        <p class="open-sans font-size-large hidden">Please favorite a character</p>
         <ul class="second-ul">
         </ul>
+        <div class="model-container hidden">
+          <div class="row justify-center margin-top">
+            <p class="open-sans delete-character"></p>
+          </div>
+          <div class="row justify-space-around margin-top">
+            <div>
+              <button class="cancel">cancel</button>
+            </div>
+            <button class="confirm">confirm</button>
+          </div>
+        </div>
       </div>
     </div>
   </main>
