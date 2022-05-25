@@ -96,6 +96,7 @@ button {
   cursor: pointer;
   box-shadow: 10px 5px 5px black;
   font-family: "Proza libre", sans-serif;
+  transition: 0.5s;
 }
 
 button:hover {
@@ -190,4 +191,22 @@ video {
   font-family: "Dancing Script", sans-serif;
   font-size: 2rem;
   user-select: none;
+}
+
+.home {
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.home:hover {
+  color: rgba(255, 255, 255, 0.51);
+}
+
+.favorite {
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.favorite:hover {
+  color: rgba(255, 255, 255, 0.51);
 }
