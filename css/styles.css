@@ -167,11 +167,10 @@ video {
   justify-content: center;
 }
 
-.model-container {
+.model {
   background-color: #0f1722;
   height: 25vh;
   border-radius: 5px;
-  z-index: 999;
   box-shadow: 10px 5px 5px black;
 }
 
