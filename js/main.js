@@ -4,11 +4,8 @@ const xhr = new XMLHttpRequest();
 xhr.open('GET', 'https://valorant-api.com/v1/agents?isPlayableCharacter=true');
 xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
-  // console.log('the status of xhr', xhr.status);
-  // console.log('the response of xhr', xhr.response.data);
   data.character = xhr.response.data;
   renderAgents(xhr.response);
-
 });
 
 xhr.send();

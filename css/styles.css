@@ -99,7 +99,7 @@ button {
 }
 
 button:hover {
-  background-color: #fe4553;
+  background-color: #db4c58c8;
 }
 
 .justify-space-between {
@@ -184,4 +184,10 @@ video {
 
 .favorite-img-container:hover {
   transform: scale(1.1);
+}
+
+.dancing-script {
+  font-family: "Dancing Script", sans-serif;
+  font-size: 2rem;
+  user-select: none;
 }
