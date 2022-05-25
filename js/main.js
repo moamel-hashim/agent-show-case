@@ -6,6 +6,8 @@ xhr.responseType = 'json';
 xhr.addEventListener('load', function () {
   data.character = xhr.response.data;
   renderAgents(xhr.response);
+  const $loader = document.querySelector('.loader-container');
+  $loader.classList.add('hidden');
 });
 
 xhr.send();

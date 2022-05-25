@@ -40,6 +40,14 @@
   z-index: 1000;
 }
 
+.loader-container {
+  width: 100%;
+  height: 75vh;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+}
+
 .img-container {
   width: 40%;
 }
@@ -143,5 +151,13 @@ button {
 
   .model {
     width: 35%;
+  }
+
+  .loader-container {
+    width: 100%;
+    height: 75vh;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
   }
 }
