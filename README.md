@@ -16,7 +16,7 @@ Try the application live at [https://moamel-hashim.github.io/ajax-project-v2/](h
 
 ## Features
 - User can view a list of Valorant characters 
-- User can click on the character card to view a short discription about the character
+- User can click on the character card to view a short description about the character
 - When a user click on the view ability button they will be redirected to a new page where they can see a short video of the character ability and a description
 - User can favorite a character 
 - User can delete a character from their favorite 
