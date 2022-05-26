@@ -24,6 +24,9 @@ Try the application live at [https://moamel-hashim.github.io/ajax-project-v2/](h
 ## Preview 
 ![preview](https://user-images.githubusercontent.com/90476994/170389988-27f91c1a-ba6b-4109-b4f2-a485eb1b391b.gif)
 
+## Stretched Features
+- One feature I would like to add in the feature is user will be able to search for a character.
+
 ## Development
 
 ### System Requirements
