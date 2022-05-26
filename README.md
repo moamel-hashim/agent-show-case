@@ -9,10 +9,10 @@ an AJAX application for Valorant players who want to understand each character's
 - XHML
 - Vanilla JavaScript
 - AJAX
-- API
+- Valorant API
 
 ## Live Demo
-Try the application live at [https://moamel-hashim.github.io/ajax-project-v2/](https://moamel-hashim.github.io/ajax-project-v2/)
+Try the application live at [https://moamel-hashim.github.io/ajax-project-v2/](https://moamel-hashim.github.io/agent-show-case/)
 
 ## Features
 - User can view a list of Valorant characters 
