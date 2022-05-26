@@ -1,6 +1,6 @@
 # ajax-project
 
-an AJAX application for Valorant players who want to understand each character abilities and lore.
+an AJAX application for Valorant players who want to understand each character's abilities and lore.
 
 ## Technologies Used
 
