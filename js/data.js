@@ -107,14 +107,14 @@
 //   }
 // };
 
-const previousDataJSON = localStorage.getItem('AJAX');
-if (previousDataJSON !== null) {
-  data = JSON.parse(previousDataJSON);
-}
+// const previousDataJSON = localStorage.getItem('AJAX');
+// if (previousDataJSON !== null) {
+//   data = JSON.parse(previousDataJSON);
+// }
 
-window.addEventListener('beforeunload', BeforeUnloadHandler);
-function BeforeUnloadHandler(event) {
-  data.id = 0;
-  const dataJSON = JSON.stringify(data);
-  localStorage.setItem('AJAX', dataJSON);
-}
+// window.addEventListener('beforeunload', BeforeUnloadHandler);
+// function BeforeUnloadHandler(event) {
+//   data.id = 0;
+//   const dataJSON = JSON.stringify(data);
+//   localStorage.setItem('AJAX', dataJSON);
+// }
